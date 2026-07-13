@@ -1,0 +1,11 @@
+[user]
+	name = AndrE
+	email = rzuckasto@gmail.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[core]
+	editor = nvim
+[color]
+	ui = auto
