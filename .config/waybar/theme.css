@@ -1,0 +1,36 @@
+@import "kanagawa_palette.css";
+
+/*
+	br - border
+	bg - background
+	fg - foreground
+*/
+
+/* main colors */
+
+@define-color accent		@lotusGray3;
+@define-color main-br		@sumiInk6;
+@define-color main-bg		@sumiInk2;
+@define-color main-fg		@dragonWhite;
+@define-color hover-bg		@sumiInk4;
+@define-color hover-fg		alpha(@main-fg, 0.75);
+@define-color outline		shade(@main-bg, 0.5);
+
+/* module colors */
+
+@define-color workspaces	@sumiInk4;
+@define-color temperature	@sumiInk4;
+@define-color memory		@sumiInk5;
+@define-color cpu			@sumiInk6;
+@define-color time			@sumiInk6;
+@define-color date			@sumiInk5;
+@define-color tray			@sumiInk4;
+@define-color volume		@sumiInk4;
+@define-color backlight		@sumiInk6;
+@define-color battery		@sumiInk5;
+
+/* state colors */
+
+@define-color warning		@boatYellow2;
+@define-color critical		@lotusRed3;
+@define-color charging		@lotusGreen;

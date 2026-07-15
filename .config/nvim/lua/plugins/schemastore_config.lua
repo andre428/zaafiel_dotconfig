@@ -1,0 +1,100 @@
+-- ================================================================================================
+-- TITLE : SchemaStore.nvim - JSON/YAML Schema Validation
+-- ABOUT : Provides access to the SchemaStore catalog for automatic validation and autocompletion
+--         of JSON and YAML files. Integrates with jsonls and yamlls language servers.
+--
+--         Examples of what this enables:
+--         - package.json: Validates npm package structure, suggests valid scripts
+--         - tsconfig.json: TypeScript config validation and completion
+--         - docker-compose.yml: Docker compose schema validation
+--         - GitHub Actions workflows: Validates .github/workflows/*.yml files
+--         - And 600+ other schemas from https://schemastore.org
+--
+-- LINKS :
+--   > github        : https://github.com/b0o/SchemaStore.nvim
+--   > schema catalog: https://www.schemastore.org/json/
+-- ================================================================================================
+
+return {
+  "b0o/schemastore.nvim",
+  lazy = true,     -- Only load when needed by jsonls/yamlls
+  version = false, -- Use latest version
+}
+
+-- ================================================================================================
+-- INTEGRATION NOTES
+-- ================================================================================================
+-- This plugin is used by your LSP configs (lsp/jsonls.lua and lsp/yamlls.lua).
+--
+-- Example usage in lsp/jsonls.lua:
+-- ```lua
+-- return {
+--     settings = {
+--         json = {
+--             schemas = require('schemastore').json.schemas(),
+--             validate = { enable = true },
+--         },
+--     },
+-- }
+-- ```
+--
+-- Example usage in lsp/yamlls.lua:
+-- ```lua
+-- return {
+--     settings = {
+--         yaml = {
+--             schemaStore = {
+--                 enable = false,  -- Disable built-in schemaStore
+--                 url = "",
+--             },
+--             schemas = require('schemastore').yaml.schemas(),
+--         },
+--     },
+-- }
+-- ```
+--
+-- ================================================================================================
+-- ADVANCED USAGE
+-- ================================================================================================
+--
+-- === Select specific schemas only ===
+-- schemas = require('schemastore').json.schemas({
+--     select = {
+--         'package.json',
+--         'tsconfig.json',
+--         '.eslintrc',
+--     },
+-- }),
+--
+-- === Ignore specific schemas ===
+-- schemas = require('schemastore').json.schemas({
+--     ignore = {
+--         'package.json', -- Use custom schema instead
+--     },
+-- }),
+--
+-- === Add custom schemas ===
+-- schemas = require('schemastore').json.schemas({
+--     extra = {
+--         {
+--             description = 'My custom JSON schema',
+--             fileMatch = { 'my-config.json' },
+--             name = 'my-config.json',
+--             url = 'https://example.com/schema.json',
+--         },
+--     },
+-- }),
+--
+-- === Replace existing schemas ===
+-- schemas = require('schemastore').json.schemas({
+--     replace = {
+--         ['package.json'] = {
+--             description = 'Custom package.json schema',
+--             fileMatch = { 'package.json' },
+--             name = 'package.json',
+--             url = 'https://example.com/custom-package-schema.json',
+--         },
+--     },
+-- }),
+--
+-- ================================================================================================
