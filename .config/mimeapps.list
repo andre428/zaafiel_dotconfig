@@ -1,0 +1,25 @@
+[Added Associations]
+application/json=kate-2.desktop;
+text/x-python=kate.desktop;
+text/x-shellscript=kate-3.desktop;
+video/mp4=mpv-5.desktop;
+video/vnd.avi=mpv-4.desktop;mpv-3.desktop;
+video/x-matroska=mpv-2.desktop;
+
+[Default Applications]
+application/json=kate-2.desktop;
+application/pdf=org.pwmt.zathura.desktop
+image/jpeg=imv.desktop
+image/png=imv.desktop
+image/webp=imv.desktop
+text/plain=nvim.desktop
+text/x-python=kate.desktop;
+text/x-shellscript=kate-3.desktop;
+video/mp4=mpv.desktop
+video/vnd.avi=mpv-4.desktop;
+video/webm=mpv.desktop
+video/x-matroska=mpv.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/discord-378347526203637760=discord-378347526203637760.desktop
+x-scheme-handler/discord-719647875465871400=discord-719647875465871400.desktop
+x-scheme-handler/jetbrains=jetbrainsd.desktop
